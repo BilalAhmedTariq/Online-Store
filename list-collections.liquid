@@ -1,0 +1,13 @@
+<div class="list-collection">
+  <h1>Collection</h1>
+  <div class="row">
+    {% for collection in collections %}
+      <div class="col-lg-6 col-md-6">
+        <a href="{{ collection.url }}">
+          <h2>{{ collection.title }}</h2>
+          <p>Product:{{ collection.all_products_count }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

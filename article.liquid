@@ -1,0 +1,42 @@
+<div class="article aa">
+  <h1>{{ article.title }}</h1>
+  <p>{{ article.published_at | date: '%b %d, %Y' }}</p>
+  <div class="row">
+    <div class="col-lg-6 article-content">
+      {{ article.content }}
+    </div>
+  </div>
+
+  <div class="comment">
+    <h2>Leave a Comment</h2>
+    {% for comment in article.comments %}
+      <div>
+        <h3>{{ comment.name }}</h3>
+        <p>{{ comment.email }}</p>
+        <div>{{ comment.content }}</div>
+      </div>
+    {% endfor %}
+    {% form 'contact' %}
+      {{ form.errors | default_errors }}
+
+      <div class="first-name">
+        <label for="first-name">Name</label>
+        <input type="text" name="contact[first_name]" id="first-name">
+      </div>
+
+      <div class="email">
+        <label for="email">Email</label>
+        <input type="email" name="contact[email]" id="email">
+      </div>
+
+      <div class="message">
+        <label for="message">Leave a Comment</label>
+        <textarea name="contact[body]" id="message"></textarea>
+      </div>
+
+      <div class="submit">
+        <input type="submit" value="Submit">
+      </div>
+    {% endform %}
+  </div>
+</div>

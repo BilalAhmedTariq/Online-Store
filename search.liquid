@@ -1,0 +1,44 @@
+{% if search.performed %}
+  <h1>Your Search result</h1>
+  <div class="row">
+    {% for result in search.results %}
+      <div class="col-lg-6 col-mg-6">
+        {% if result.object_type == 'page' %}
+          <div>
+            <a href="{{ result.url }}">
+              {{- result.title }}
+            </a>
+          </div>
+          <div>
+            <p>{{- result.price | money }}</p>
+          </div>
+          <div>
+            <a href="{{ result.url }}">
+              <img src="{{ result.featured_image | image_url: width: 400 }}">
+            </a>
+          </div>
+
+        {% else %}
+          <div>
+            <a href="{{ result.url }}">
+              {{- result.title }}
+            </a>
+          </div>
+          <div>
+            <p>{{- result.price | money }}</p>
+          </div>
+          <div>
+            <a href="{{ result.url }}">
+              <img src="{{ result.featured_image | image_url: width: 400 }}">
+            </a>
+          </div>
+
+        {% else %}
+          <a href="{{ result.url }}">{{ result.title }}</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <h1>Try searching</h1>
+{% endif %}

@@ -1,0 +1,35 @@
+<div class="sample">
+  <h1>{{ page.title }}</h1>
+  {% form 'contact' %}
+    {{ form.errors | default_errors }}
+    <div class="cform">
+      <div class="first-name">
+        <label class="fname" for="first-name">First name</label>
+        <input type="text" name="contact[first_name]" id="first-name">
+      </div>
+      <br>
+      <div class="last-name">
+        <label class="fname" for="last-name">Last name</label>
+        <input type="text" name="contact[last_name]" id="last-name">
+      </div>
+      <br>
+      <div class="phone">
+        <label class="cphone" for="phone">Phone</label>
+        <input type="tel" name="contact[phone]" id="phone">
+      </div>
+      <br>
+      <div class="email">
+        <label class="mail" for="email">Email</label>
+        <input type="email" name="contact[email]" id="email">
+      </div>
+      <br>
+      <div class="message">
+        <label class="fname" for="message">Message</label>
+        <textarea name="contact[body]" id="message"></textarea>
+      </div>
+      <br>
+
+      <button class="btn" type="submit">Submit</button>
+    </div>
+  {% endform %}
+</div>
